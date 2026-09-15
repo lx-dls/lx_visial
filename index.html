@@ -3,63 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LX Visual — в разработке</title>
-<meta name="description" content="LX Visual — визуалы нового уровня. Проект в разработке на C++.">
+<title>LX Visual</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Прелоадер -->
+<div class="preloader" id="preloader">
+  <div class="pre-logo">LX<span>Visual</span></div>
+  <div class="pre-bar"><div class="pre-fill" id="preFill"></div></div>
+  <div class="pre-num" id="preNum">0%</div>
+</div>
+
 <div class="bg-glow glow-1"></div>
 <div class="bg-glow glow-2"></div>
-<div class="bg-glow glow-3"></div>
 <div class="bg-grid"></div>
-<div class="bg-noise"></div>
 
 <header class="nav">
   <div class="logo">LX<span>Visual</span></div>
-  <div class="nav-status">
-    <span class="pulse"></span>
-    <span>В разработке</span>
-  </div>
+  <div class="nav-status"><span class="pulse"></span> C++</div>
 </header>
 
 <main class="hero">
   <div class="hero-tag">✦ Скоро</div>
   <h1>LX Visual</h1>
-  <p class="hero-sub">Визуалы нового уровня для Minecraft. Проект пишется с нуля на <b>C++</b> — быстрее, стабильнее и красивее, чем всё, что было раньше.</p>
-
-  <div class="progress-wrap">
-    <div class="progress-label">
-      <span>Разработка</span>
-      <span id="progressNum">0%</span>
-    </div>
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-  </div>
-
-  <div class="hero-buttons">
-    <button class="btn btn-primary" id="devBtn">В разработке</button>
-    <a class="btn btn-glass" href="https://discord.gg/lxvisual" target="_blank" rel="noopener">Discord</a>
-    <a class="btn btn-glass" href="https://t.me/lxvisual" target="_blank" rel="noopener">Telegram</a>
-  </div>
+  <p class="hero-sub">Визуалы нового уровня для Minecraft, написанные на <b>C++</b>. Новости и релизы — в Telegram.</p>
+  <a class="btn btn-primary" href="https://t.me/lxvisual" target="_blank" rel="noopener">Новости в Telegram</a>
 </main>
 
 <footer class="footer">
-  <div class="footer-line"></div>
-  <p>© 2026 LX Visual. Все права защищены.</p>
-</footer>
-
-<div class="modal" id="devModal">
-  <div class="modal-box">
-    <button class="modal-close" id="closeDev">✕</button>
-    <div class="modal-icon">⚙️</div>
-    <h3>Проект в разработке</h3>
-    <p class="modal-sub">LX Visual сейчас пишется на C++. Мы работаем над ядром, рендером и оптимизацией. Следи за прогрессом в Discord и Telegram.</p>
-    <div class="modal-actions">
-      <a class="btn btn-primary full" href="https://discord.gg/lxvisual" target="_blank" rel="noopener">Discord</a>
-      <a class="btn btn-glass full" href="https://t.me/lxvisual" target="_blank" rel="noopener">Telegram</a>
+  <div class="dev-card">
+    <img class="dev-avatar" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=lxneo" alt="avatar">
+    <div class="dev-info">
+      <span class="dev-label">by</span>
+      <a class="dev-nick" href="https://t.me/lx_neo" target="_blank" rel="noopener">@lx_neo</a>
     </div>
   </div>
-</div>
+  <p class="copy">© 2026 LX Visual</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
