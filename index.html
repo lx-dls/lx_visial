@@ -8,130 +8,111 @@
 </head>
 <body>
 
+<div class="bg-glow glow-1"></div>
+<div class="bg-glow glow-2"></div>
+<div class="bg-grid"></div>
+
 <header class="nav">
   <div class="logo">LX<span>Visual</span></div>
   <nav class="menu">
     <a href="#features">Визуалы</a>
+    <a href="#gallery">Галерея</a>
     <a href="#community">Сообщество</a>
     <a href="#faq">FAQ</a>
-    <a href="#reviews">Отзывы</a>
   </nav>
-  <div class="nav-actions">
-    <button class="btn btn-ghost" id="loginBtn">Войти</button>
-    <button class="btn btn-primary" id="downloadBtn">Скачать</button>
-  </div>
+  <button class="btn btn-primary" id="downloadBtn">Скачать</button>
 </header>
 
 <section class="hero">
-  <div class="hero-glow"></div>
-  <h1>LX Visual — <span>визуалы</span> нового уровня</h1>
-  <p>Шейдеры, ресурспаки и пресеты для Minecraft. Чистая картинка, стабильный FPS, обновления каждую неделю.</p>
+  <div class="hero-badge">✦ Обновление 2026</div>
+  <h1>LX Visual — <span class="grad">визуалы</span> нового уровня</h1>
+  <p>Шейдеры, ресурспаки и пресеты для Minecraft. Чистая картинка, стабильный FPS, свежие обновления каждую неделю.</p>
   <div class="hero-buttons">
     <button class="btn btn-gradient" id="heroDownload">Скачать</button>
-    <button class="btn btn-glass" id="heroDemo">Смотреть демо</button>
-    <button class="btn btn-outline" id="heroCommunity">Сообщество</button>
+    <button class="btn btn-glass" id="heroCommunity">Сообщество</button>
   </div>
   <div class="hero-stats">
-    <div><b>12k+</b><span>пользователей</span></div>
-    <div><b>300+</b><span>визуалов</span></div>
-    <div><b>24/7</b><span>поддержка</span></div>
+    <div><b data-count="300">0</b><span>визуалов</span></div>
+    <div><b data-count="12000">0</b><span>пользователей</span></div>
+    <div><b data-count="99">0</b><span>% аптайм</span></div>
   </div>
 </section>
 
-<section id="features" class="section">
-  <h2>Визуалы</h2>
+<section id="features" class="section reveal">
+  <h2>Категории визуалов</h2>
   <div class="grid">
-    <div class="card">
+    <div class="card tilt">
       <div class="icon">🌅</div>
       <h3>Шейдеры</h3>
       <p>Реалистичное небо, вода, тени и освещение. Оптимизация под слабые ПК.</p>
-      <button class="btn btn-neon" data-cat="shaders">Открыть</button>
+      <button class="btn btn-neon" data-cat="Шейдеры">Открыть</button>
     </div>
-    <div class="card">
+    <div class="card tilt">
       <div class="icon">🎨</div>
       <h3>Ресурспаки</h3>
       <p>Текстуры, модели, интерфейс. HD и стилизованные сборки.</p>
-      <button class="btn btn-icon" data-cat="packs">🎨 Открыть</button>
+      <button class="btn btn-icon" data-cat="Ресурспаки">🎨 Открыть</button>
     </div>
-    <div class="card">
+    <div class="card tilt">
       <div class="icon">⚙️</div>
       <h3>Пресеты</h3>
       <p>Готовые настройки графики и конфиги под разные сборки.</p>
-      <button class="btn btn-fill" data-cat="presets">Настроить</button>
+      <button class="btn btn-fill" data-cat="Пресеты">Настроить</button>
+    </div>
+    <div class="card tilt">
+      <div class="icon">✨</div>
+      <h3>Эффекты</h3>
+      <p>Bloom, motion blur, depth of field и другие пост-эффекты.</p>
+      <button class="btn btn-outline" data-cat="Эффекты">Открыть</button>
     </div>
   </div>
 </section>
 
-<section id="community" class="section dark">
+<section id="gallery" class="section dark reveal">
+  <h2>Галерея</h2>
+  <div class="gallery">
+    <div class="shot s1"></div>
+    <div class="shot s2"></div>
+    <div class="shot s3"></div>
+    <div class="shot s4"></div>
+    <div class="shot s5"></div>
+    <div class="shot s6"></div>
+  </div>
+</section>
+
+<section id="community" class="section reveal">
   <h2>Сообщество</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="icon">💬</div>
+  <div class="community-grid">
+    <a class="comm-card discord" href="https://discord.gg/lxvisual" target="_blank" rel="noopener">
+      <div class="comm-icon">💬</div>
       <h3>Discord</h3>
       <p>Основной чат, поддержка, анонсы обновлений.</p>
-      <button class="btn btn-gradient" data-link="https://discord.gg/lxvisual">Вступить</button>
-    </div>
-    <div class="card">
-      <div class="icon">📢</div>
+      <span class="comm-btn">Вступить →</span>
+    </a>
+    <a class="comm-card telegram" href="https://t.me/lxvisual" target="_blank" rel="noopener">
+      <div class="comm-icon">📢</div>
       <h3>Telegram</h3>
       <p>Новости, релизы и быстрая связь с командой.</p>
-      <button class="btn btn-glass" data-link="https://t.me/lxvisual">Подписаться</button>
-    </div>
-    <div class="card">
-      <div class="icon">▶️</div>
-      <h3>YouTube</h3>
-      <p>Обзоры визуалов, сравнения до/после, гайды.</p>
-      <button class="btn btn-outline" data-link="https://youtube.com/@lxvisual">Смотреть</button>
-    </div>
-    <div class="card">
-      <div class="icon">🐙</div>
-      <h3>GitHub</h3>
-      <p>Исходники, релизы, issue-трекер.</p>
-      <button class="btn btn-icon" data-link="https://github.com/lx-dls/lx_v">Открыть</button>
-    </div>
+      <span class="comm-btn">Подписаться →</span>
+    </a>
   </div>
 </section>
 
-<section id="reviews" class="section">
-  <h2>Отзывы</h2>
-  <div class="grid">
-    <div class="card review"><p>«Шейдеры держат 120 FPS даже на ноутбуке.»</p><b>— Neo</b></div>
-    <div class="card review"><p>«Ресурспак реально преобразил игру.»</p><b>— Astra</b></div>
-    <div class="card review"><p>«Пресеты зашли с первого раза, ничего не крашится.»</p><b>— Vortex</b></div>
-  </div>
-</section>
-
-<section id="faq" class="section dark">
+<section id="faq" class="section dark reveal">
   <h2>FAQ</h2>
   <details><summary>Как установить визуалы?</summary><p>Скачай архив, распакуй в папку shaderpacks или resourcepacks, выбери в настройках игры.</p></details>
   <details><summary>Влияет ли на FPS?</summary><p>Зависит от пресета. Есть лёгкие сборки для слабых ПК.</p></details>
-  <details><summary>Обновления бесплатные?</summary><p>Да, все обновления визуалов бесплатны для пользователей.</p></details>
+  <details><summary>Обновления бесплатные?</summary><p>Да, все обновления визуалов бесплатны.</p></details>
 </section>
 
 <footer class="footer">
   <div class="logo">LX<span>Visual</span></div>
   <p>© 2026 LX Visual. Все права защищены.</p>
   <div class="footer-actions">
-    <button class="btn btn-ghost" data-link="https://discord.gg/lxvisual">Discord</button>
-    <button class="btn btn-ghost" data-link="https://t.me/lxvisual">Telegram</button>
-    <button class="btn btn-danger" id="reportBtn">Сообщить о баге</button>
+    <a class="btn btn-ghost" href="https://discord.gg/lxvisual" target="_blank" rel="noopener">Discord</a>
+    <a class="btn btn-ghost" href="https://t.me/lxvisual" target="_blank" rel="noopener">Telegram</a>
   </div>
 </footer>
-
-<!-- Модальное окно входа -->
-<div class="modal" id="loginModal">
-  <div class="modal-box">
-    <button class="modal-close" id="closeLogin">✕</button>
-    <h3>Вход в LX Visual</h3>
-    <p class="modal-sub">Введи данные аккаунта</p>
-    <form id="loginForm">
-      <input type="text" id="loginUser" placeholder="Логин" required>
-      <input type="password" id="loginPass" placeholder="Пароль" required>
-      <button type="submit" class="btn btn-gradient full">Войти</button>
-    </form>
-    <p class="modal-msg" id="loginMsg"></p>
-  </div>
-</div>
 
 <script src="script.js"></script>
 </body>
