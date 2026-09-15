@@ -3,157 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LX Visual — твой следующий уровень</title>
+<title>LX Visual — в разработке</title>
+<meta name="description" content="LX Visual — визуалы нового уровня. Проект в разработке на C++.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="bg-glow glow-1"></div>
 <div class="bg-glow glow-2"></div>
+<div class="bg-glow glow-3"></div>
 <div class="bg-grid"></div>
+<div class="bg-noise"></div>
 
 <header class="nav">
   <div class="logo">LX<span>Visual</span></div>
-  <nav class="menu">
-    <a href="#features">Преимущества</a>
-    <a href="#style">Стиль</a>
-    <a href="#pricing">Тарифы</a>
-    <a href="#video">Обзор</a>
-    <a href="#community">Сообщество</a>
-  </nav>
-  <div class="nav-actions">
-    <button class="btn btn-glass" id="loginBtn">Войти</button>
-    <button class="btn btn-primary" id="downloadBtn">Скачать</button>
+  <div class="nav-status">
+    <span class="pulse"></span>
+    <span>В разработке</span>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-badge">✦ Твой следующий уровень начинается здесь</div>
-  <h1>Лучший мод для <span class="grad">комфортной игры</span> в Minecraft</h1>
-  <p>LX Visual создан для тех, кто ценит стиль, удобство и максимальную производительность.</p>
+<main class="hero">
+  <div class="hero-tag">✦ Скоро</div>
+  <h1>LX Visual</h1>
+  <p class="hero-sub">Визуалы нового уровня для Minecraft. Проект пишется с нуля на <b>C++</b> — быстрее, стабильнее и красивее, чем всё, что было раньше.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Разработка</span>
+      <span id="progressNum">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
   <div class="hero-buttons">
-    <button class="btn btn-gradient" id="heroDownload">Скачать</button>
-    <button class="btn btn-glass" id="heroLogin">Войти</button>
+    <button class="btn btn-primary" id="devBtn">В разработке</button>
+    <a class="btn btn-glass" href="https://discord.gg/lxvisual" target="_blank" rel="noopener">Discord</a>
+    <a class="btn btn-glass" href="https://t.me/lxvisual" target="_blank" rel="noopener">Telegram</a>
   </div>
-</section>
-
-<section id="features" class="section reveal">
-  <h2>Преимущества нашего мода</h2>
-  <p class="section-sub">Мощный набор функций, который выводит комфорт и стиль игры на новый уровень.</p>
-  <div class="grid">
-    <div class="card tilt"><div class="icon">🎨</div><h3>Дизайн</h3><p>Элегантный минималистичный интерфейс.</p></div>
-    <div class="card tilt"><div class="icon">⚡</div><h3>Производительность</h3><p>Высокий FPS даже на слабых ПК.</p></div>
-    <div class="card tilt"><div class="icon">⚔️</div><h3>PvP преимущества</h3><p>Специальные настройки для боёв.</p></div>
-    <div class="card tilt"><div class="icon">⚙️</div><h3>Гибкие настройки</h3><p>Множество параметров и опций.</p></div>
-    <div class="card tilt"><div class="icon">🛡️</div><h3>Совместимость</h3><p>Работает с серверными системами.</p></div>
-    <div class="card tilt"><div class="icon">🔄</div><h3>Обновления</h3><p>Регулярно добавляем новое.</p></div>
-  </div>
-</section>
-
-<section id="style" class="section dark reveal">
-  <h2>Играй по-своему</h2>
-  <p class="section-sub">Сочный HD-дизайн или мрачная классика Minecraft. Решение за тобой.</p>
-  <div class="style-switch">
-    <div class="style-shot hd">HD Дизайн</div>
-    <div class="style-shot classic">Классика</div>
-  </div>
-</section>
-
-<section id="pricing" class="section reveal">
-  <h2>Ваш идеальный тариф здесь</h2>
-  <p class="section-sub">Несколько вариантов подписки, чтобы вы платили только за нужное.</p>
-  <div class="grid">
-    <div class="price-card">
-      <h3>30 дней</h3>
-      <div class="price">Полный доступ на 30 дней</div>
-      <ul><li>Все функции мода</li><li>Обновления</li><li>Поддержка в Discord</li></ul>
-      <button class="btn btn-outline full" data-plan="30 дней">Выбрать</button>
-    </div>
-    <div class="price-card featured">
-      <div class="badge">Популярный</div>
-      <h3>90 дней</h3>
-      <div class="price">Полный доступ на полгода</div>
-      <ul><li>Всё из тарифа 30 дней</li><li>Приоритетные обновления</li><li>Расширенные настройки</li></ul>
-      <button class="btn btn-gradient full" data-plan="90 дней">Выбрать</button>
-    </div>
-    <div class="price-card">
-      <h3>Навсегда</h3>
-      <div class="price">Максимум возможностей — навсегда</div>
-      <ul><li>Все функции без ограничений</li><li>Все будущие обновления</li><li>Без продлений и доплат</li></ul>
-      <button class="btn btn-neon full" data-plan="Навсегда">Выбрать</button>
-    </div>
-  </div>
-</section>
-
-<section id="video" class="section dark reveal">
-  <h2>Узнайте больше о LX Visual</h2>
-  <p class="section-sub">Краткий видеообзор покажет ключевые функции и преимущества.</p>
-  <div class="video-box"><div class="video-placeholder">▶ Видеообзор</div></div>
-</section>
-
-<section class="section stats reveal">
-  <div class="stats-grid">
-    <div><b data-count="358252">0</b><span>Активных пользователей</span></div>
-    <div><b data-count="120">0</b><span>Обновлений</span></div>
-    <div><b data-count="98">0</b><span>% довольных</span></div>
-    <div><b>24/7</b><span>Поддержка</span></div>
-  </div>
-</section>
-
-<section id="community" class="section dark reveal">
-  <h2>Сообщество</h2>
-  <div class="community-grid">
-    <a class="comm-card discord" href="https://discord.gg/lxvisual" target="_blank" rel="noopener">
-      <div class="comm-icon">💬</div><h3>Discord</h3><p>Основной чат, поддержка, анонсы.</p><span class="comm-btn">Вступить →</span>
-    </a>
-    <a class="comm-card telegram" href="https://t.me/lxvisual" target="_blank" rel="noopener">
-      <div class="comm-icon">📢</div><h3>Telegram</h3><p>Новости, релизы и связь с командой.</p><span class="comm-btn">Подписаться →</span>
-    </a>
-  </div>
-</section>
-
-<section class="section cta reveal">
-  <h2>Ваш следующий уровень начинается здесь</h2>
-  <p class="section-sub">Присоединяйтесь к тысячам игроков, использующих LX Visual.</p>
-  <button class="btn btn-gradient" id="ctaDownload">Скачать</button>
-</section>
+</main>
 
 <footer class="footer">
-  <div class="logo">LX<span>Visual</span></div>
-  <div class="footer-actions">
-    <a class="btn btn-ghost" href="https://discord.gg/lxvisual" target="_blank" rel="noopener">Discord</a>
-    <a class="btn btn-ghost" href="https://t.me/lxvisual" target="_blank" rel="noopener">Telegram</a>
-  </div>
+  <div class="footer-line"></div>
   <p>© 2026 LX Visual. Все права защищены.</p>
 </footer>
 
-<!-- Модалка входа -->
-<div class="modal" id="loginModal">
+<div class="modal" id="devModal">
   <div class="modal-box">
-    <button class="modal-close" id="closeLogin">✕</button>
-    <h3>Вход в LX Visual</h3>
-    <p class="modal-sub">Введи данные аккаунта</p>
-    <form id="loginForm">
-      <input type="text" id="loginUser" placeholder="Логин" required>
-      <input type="password" id="loginPass" placeholder="Пароль" required>
-      <button type="submit" class="btn btn-gradient full">Войти</button>
-    </form>
-    <p class="modal-msg" id="loginMsg"></p>
-  </div>
-</div>
-
-<!-- Модалка кабинета -->
-<div class="modal" id="cabinetModal">
-  <div class="modal-box">
-    <button class="modal-close" id="closeCabinet">✕</button>
-    <h3>Личный кабинет</h3>
-    <p class="modal-sub" id="cabUser">Привет!</p>
-    <div class="cab-row"><span>Подписка:</span><b id="cabSub">Pro</b></div>
-    <div class="cab-row"><span>Осталось:</span><b id="cabDays">47 дней</b></div>
-    <div class="cab-row"><span>Ключ:</span></div>
-    <input type="text" id="cabKey" readonly>
-    <button class="btn btn-neon full" id="cabCopy">Скопировать ключ</button>
-    <button class="btn btn-ghost full" id="cabLogout">Выйти</button>
+    <button class="modal-close" id="closeDev">✕</button>
+    <div class="modal-icon">⚙️</div>
+    <h3>Проект в разработке</h3>
+    <p class="modal-sub">LX Visual сейчас пишется на C++. Мы работаем над ядром, рендером и оптимизацией. Следи за прогрессом в Discord и Telegram.</p>
+    <div class="modal-actions">
+      <a class="btn btn-primary full" href="https://discord.gg/lxvisual" target="_blank" rel="noopener">Discord</a>
+      <a class="btn btn-glass full" href="https://t.me/lxvisual" target="_blank" rel="noopener">Telegram</a>
+    </div>
   </div>
 </div>
 
