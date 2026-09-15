@@ -6,77 +6,58 @@ document.querySelectorAll('.menu a').forEach(a=>{
   });
 });
 
-// Внешние ссылки (сообщество, футер)
-document.querySelectorAll('[data-link]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    window.open(btn.dataset.link,'_blank','noopener');
+// Плавное появление секций при скролле
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting) en.target.classList.add('show');
   });
-});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// Кнопки "Открыть" в визуалах
-document.querySelectorAll('[data-cat]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    alert('Раздел "'+btn.dataset.cat+'" откроется после подключения каталога.');
+// Анимация счётчиков
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const target = +el.dataset.count;
+  let cur = 0;
+  const step = target / 60;
+  const tick = ()=>{
+    cur += step;
+    if(cur >= target){ el.textContent = target.toLocaleString('ru-RU'); return; }
+    el.textContent = Math.floor(cur).toLocaleString('ru-RU');
+    requestAnimationFrame(tick);
+  };
+  const io2 = new IntersectionObserver(en=>{
+    if(en[0].isIntersecting){ tick(); io2.disconnect(); }
   });
+  io2.observe(el);
 });
 
-// Модалка входа
-const loginModal = document.getElementById('loginModal');
-const loginMsg   = document.getElementById('loginMsg');
-const loginForm  = document.getElementById('loginForm');
-
-function openLogin(){ loginModal.classList.add('open'); }
-function closeLogin(){ loginModal.classList.remove('open'); loginMsg.textContent=''; }
-
-document.getElementById('loginBtn').addEventListener('click', openLogin);
-document.getElementById('closeLogin').addEventListener('click', closeLogin);
-loginModal.addEventListener('click', e=>{ if(e.target===loginModal) closeLogin(); });
-
-loginForm.addEventListener('submit', e=>{
-  e.preventDefault();
-  const user = document.getElementById('loginUser').value.trim();
-  const pass = document.getElementById('loginPass').value.trim();
-
-  if(user.length < 3 || pass.length < 4){
-    loginMsg.className='modal-msg err';
-    loginMsg.textContent='Логин от 3 символов, пароль от 4.';
-    return;
-  }
-
-  // Сохраняем сессию локально
-  localStorage.setItem('lx_user', user);
-  loginMsg.className='modal-msg ok';
-  loginMsg.textContent='Успешный вход, '+user+'!';
-  setTimeout(()=>{
-    closeLogin();
-    document.getElementById('loginBtn').textContent = user;
-    document.getElementById('loginBtn').classList.remove('btn-ghost');
-    document.getElementById('loginBtn').classList.add('btn-primary');
-  },700);
-});
-
-// Если уже вошёл — показываем ник
-const saved = localStorage.getItem('lx_user');
-if(saved){
-  const b = document.getElementById('loginBtn');
-  b.textContent = saved;
-  b.classList.remove('btn-ghost');
-  b.classList.add('btn-primary');
-}
-
-// Кнопки скачивания / демо / сообщество
+// Скачивание
 document.getElementById('downloadBtn')?.addEventListener('click',()=>{
-  window.open('https://github.com/lx-dls/lx_v/releases','_blank','noopener');
+  window.open('https://t.me/lxvisual','_blank','noopener');
 });
 document.getElementById('heroDownload')?.addEventListener('click',()=>{
-  window.open('https://github.com/lx-dls/lx_v/releases','_blank','noopener');
-});
-document.getElementById('heroDemo')?.addEventListener('click',()=>{
-  document.getElementById('features').scrollIntoView({behavior:'smooth'});
+  window.open('https://t.me/lxvisual','_blank','noopener');
 });
 document.getElementById('heroCommunity')?.addEventListener('click',()=>{
   document.getElementById('community').scrollIntoView({behavior:'smooth'});
 });
-document.getElementById('reportBtn')?.addEventListener('click',()=>{
-  window.open('https://github.com/lx-dls/lx_v/issues','_blank','noopener');
+
+// Категории
+document.querySelectorAll('[data-cat]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.getElementById('gallery').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Лёгкий 3D-tilt для карточек
+document.querySelectorAll('.tilt').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width - .5;
+    const y = (e.clientY - r.top)/r.height - .5;
+    card.style.transform = `translateY(-8px) rotateX(${y*-6}deg) rotateY(${x*6}deg)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform = '';
+  });
 });
