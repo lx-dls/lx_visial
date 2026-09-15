@@ -1,30 +1,17 @@
-// Прогресс-бар запускается при загрузке
-window.addEventListener('load',()=>{
-  const fill=document.getElementById('progressFill');
-  const num=document.getElementById('progressNum');
-  const target=73;
-  let cur=0;
-  fill.style.width=target+'%';
-  const tick=()=>{
-    cur+=1;
-    if(cur>=target){num.textContent=target+'%';return;}
-    num.textContent=cur+'%';
-    setTimeout(tick,20);
-  };
-  tick();
-});
+// Прелоадер 1 → 100%
+const pre=document.getElementById('preloader');
+const fill=document.getElementById('preFill');
+const num=document.getElementById('preNum');
+let p=0;
 
-// Модалка "В разработке"
-const devModal=document.getElementById('devModal');
-document.getElementById('devBtn').addEventListener('click',()=>{
-  devModal.classList.add('open');
-});
-document.getElementById('closeDev').addEventListener('click',()=>{
-  devModal.classList.remove('open');
-});
-devModal.addEventListener('click',e=>{
-  if(e.target===devModal) devModal.classList.remove('open');
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape') devModal.classList.remove('open');
-});
+const tick=()=>{
+  p++;
+  fill.style.width=p+'%';
+  num.textContent=p+'%';
+  if(p<100){
+    setTimeout(tick, 18 + Math.random()*22);
+  } else {
+    setTimeout(()=>pre.classList.add('hide'),250);
+  }
+};
+tick();
