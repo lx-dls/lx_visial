@@ -6,15 +6,13 @@ document.querySelectorAll('.menu a').forEach(a=>{
   });
 });
 
-// Плавное появление секций при скролле
+// Появление секций при скролле
 const io = new IntersectionObserver(entries=>{
-  entries.forEach(en=>{
-    if(en.isIntersecting) en.target.classList.add('show');
-  });
+  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('show'); });
 },{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// Анимация счётчиков
+// Счётчики
 document.querySelectorAll('[data-count]').forEach(el=>{
   const target = +el.dataset.count;
   let cur = 0;
@@ -25,31 +23,35 @@ document.querySelectorAll('[data-count]').forEach(el=>{
     el.textContent = Math.floor(cur).toLocaleString('ru-RU');
     requestAnimationFrame(tick);
   };
-  const io2 = new IntersectionObserver(en=>{
-    if(en[0].isIntersecting){ tick(); io2.disconnect(); }
+  const obs = new IntersectionObserver(en=>{
+    if(en[0].isIntersecting){ tick(); obs.disconnect(); }
   });
-  io2.observe(el);
+  obs.observe(el);
 });
 
-// Скачивание
-document.getElementById('downloadBtn')?.addEventListener('click',()=>{
-  window.open('https://t.me/lxvisual','_blank','noopener');
-});
-document.getElementById('heroDownload')?.addEventListener('click',()=>{
-  window.open('https://t.me/lxvisual','_blank','noopener');
+// Кнопки скачивания
+['downloadBtn','heroDownload','ctaDownload'].forEach(id=>{
+  document.getElementById(id)?.addEventListener('click',()=>{
+    window.open('https://t.me/lxvisual','_blank','noopener');
+  });
 });
 document.getElementById('heroCommunity')?.addEventListener('click',()=>{
   document.getElementById('community').scrollIntoView({behavior:'smooth'});
 });
 
-// Категории
-document.querySelectorAll('[data-cat]').forEach(btn=>{
+// Тарифы — при клике ведём в Telegram
+document.querySelectorAll('[data-plan]').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    document.getElementById('gallery').scrollIntoView({behavior:'smooth'});
+    window.open('https://t.me/lxvisual','_blank','noopener');
   });
 });
 
-// Лёгкий 3D-tilt для карточек
+// Видео-заглушка
+document.querySelector('.video-placeholder')?.addEventListener('click',()=>{
+  alert('Сюда вставь свой YouTube iframe или mp4.');
+});
+
+// 3D-tilt
 document.querySelectorAll('.tilt').forEach(card=>{
   card.addEventListener('mousemove',e=>{
     const r = card.getBoundingClientRect();
@@ -57,7 +59,5 @@ document.querySelectorAll('.tilt').forEach(card=>{
     const y = (e.clientY - r.top)/r.height - .5;
     card.style.transform = `translateY(-8px) rotateX(${y*-6}deg) rotateY(${x*6}deg)`;
   });
-  card.addEventListener('mouseleave',()=>{
-    card.style.transform = '';
-  });
+  card.addEventListener('mouseleave',()=>{ card.style.transform=''; });
 });
